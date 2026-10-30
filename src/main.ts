@@ -22,7 +22,7 @@ const addTodo = (text: string) => {
     completed: false
   }
   todos.push(newTodo);
-  console.log(Todo added: ${todos});
+  console.log(`Todo added: ${todos}`);
 
   renderTodos();
 }
@@ -35,12 +35,15 @@ const renderTodos = (): void => {
     const li = document.createElement('li');
     li.className = 'todo-item';
     li.innerHTML = `
+      <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} />
       <span>${todo.text}</span>
       <button>Remove</button>
     `;
 
     addRemoveButtonListener(li, todo.id);
     todoList.appendChild(li);
+
+    addCheckboxListener(li, todo.id);
   })
 }
 
@@ -67,5 +70,17 @@ const addRemoveButtonListener = (li: HTMLLIElement, id: number): void => {
 
 const removeTodo = (id: number) => { 
   todos = todos.filter(todo => todo.id !== id);
+  renderTodos();
+}
+
+const addCheckboxListener = (li: HTMLLIElement, id: number): void => {
+  const checkbox = li.querySelector('input[type="checkbox"]');
+  checkbox?.addEventListener('change', () => toggleTodo(id));
+}
+
+const toggleTodo = (id: number): void => {
+  todos = todos.map(todo => 
+    todo.id === id ? { ...todo, completed: !todo.completed } : todo
+  );
   renderTodos();
 }
