@@ -22,7 +22,7 @@ const addTodo = (text: string) => {
     completed: false
   }
   todos.push(newTodo);
-  console.log(Todo added: ${todos});
+  console.log(`Todo added: ${todos}`);
 
   renderTodos();
 }
