@@ -91,7 +91,7 @@ todoForm.addEventListener('submit', (event: Event) => {
 
 
 const addRemoveButtonListener = (li: HTMLLIElement, id: number): void => { 
-  // Шукаємо чітко за класом .delete-btn
+
   const removeButton = li.querySelector('.delete-btn') as HTMLButtonElement;
   removeButton?.addEventListener('click', () => removeTodo(id));
 }
