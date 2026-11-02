@@ -13,8 +13,6 @@ const todoInput = document.getElementById('todo-input') as HTMLInputElement;
 const todoForm = document.querySelector('.todo-form') as HTMLFormElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
 
-const errorMessage = document.getElementById('error-message') as HTMLParagraphElement;
-
 const progressBar = document.getElementById('progress-bar') as HTMLProgressElement;
 const progressPercentage = document.getElementById('progress-percentage') as HTMLElement;
 
